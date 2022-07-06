@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Sprite Graffiti';
+    src: local('Sprite Graffiti Regular'), local('Sprite-Graffiti-Regular'),
+        url('SpriteGraffiti.woff2') format('woff2'),
+        url('SpriteGraffiti.woff') format('woff'),
+        url('SpriteGraffiti.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
