@@ -1,4 +1,5 @@
 @import url("fonts\\SpriteGraffiti\\style.css");
+@import url("fonts\\FedraSans\\stylesheet.css");
 
 body{
    background-color: rgba(221, 180, 121, .2);
@@ -8,9 +9,8 @@ header{
 	background: #DAD2C6;
 	height: 100px;
     width: 100%;
-
 }
-.main{ 
+.header{ 
     text-decoration: none;
     height: 100px;
     align-items: center;
@@ -29,11 +29,20 @@ header{
    }
 a:active {
     color: #72726E;
-    opacity: 0.8;
+    opacity: .8;
   }
-
-
-  /* Вершина иерархии */
-
+.about{
+    font-family: 'Sprite Graffiti';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+}
+.text-about{
+    font-family: 'Fedra Sans Pro';
+    font-weight: 300;
+    font-style: normal;
+    font-size: 36px;
+    width: 25%;
+}
 
 
