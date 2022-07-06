@@ -14,6 +14,7 @@ header{
     text-decoration: none;
     height: 100px;
     align-items: center;
+    justify-content: center;
     text-align: center;
     font-family: 'Sprite Graffiti';
     font-style: normal;
