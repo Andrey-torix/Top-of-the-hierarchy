@@ -39,6 +39,7 @@ a:active {
     font-weight: 400;
     font-size: 50px;
     width: 35%;
+    float: left;
 }
 .text-about{
     font-family: 'Fedra Sans Pro';
@@ -54,4 +55,27 @@ a:active {
 p{
     margin: 0;
 }
-
+.download-img{
+    opacity: 0.7;
+    display: flex;
+    float: right;
+}
+.download-link{
+    float: right;
+    position: absolute;
+    text-decoration: none; 
+    color: #72726E;
+    opacity: 1;
+    font-family: 'Fedra Sans Pro';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 60px;
+}
+.download-link span{
+    position:absolute;
+    text-align: center;
+    vertical-align:middle;
+}
+.block{
+    display: flex;
+}
