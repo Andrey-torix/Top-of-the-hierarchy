@@ -106,3 +106,13 @@ p{
         width: 100vw;
     }
 }
+@media (max-width: 850px){
+    .header-link{
+        font-size: 50px;
+    }
+}
+    @media (max-width: 392px){    
+    .text-about, .about-link{
+        font-size: 20px;
+    }
+}
