@@ -57,6 +57,9 @@ a:active {
     font-size: 30px;
     pointer-events: all;
 }
+.about-header{
+    font-size: 50px;
+}
 p{
     margin: 0;
 }
@@ -109,6 +112,12 @@ p{
 @media (max-width: 850px){
     .header-link{
         font-size: 50px;
+    }
+    .about-header{
+        font-size: 36px;
+    }
+    .text-about, .about-link{
+        font-size: 28px;
     }
 }
     @media (max-width: 392px){    
