@@ -31,18 +31,27 @@ a:active {
     color: #72726E;
     opacity: .8;
   }
-.about{
+  .about{
+    display: block;
+    margin-block: 0;
     font-family: 'Sprite Graffiti';
     font-style: normal;
     font-weight: 400;
     font-size: 50px;
+    width: 35%;
 }
 .text-about{
     font-family: 'Fedra Sans Pro';
     font-weight: 300;
     font-style: normal;
     font-size: 36px;
-    width: 25%;
 }
-
+.about-link{
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+}
+p{
+    margin: 0;
+}
 
