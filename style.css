@@ -42,6 +42,7 @@ a:active {
     font-weight: 400;
     font-size: 50px;
     width: 400px;
+    flex: 1 auto;
     pointer-events: none;
 }
 .text-about{
@@ -61,8 +62,10 @@ p{
 }
 
 .download {
+    display: flex;
+    justify-content: flex-end;
     position: relative;
-    width: calc(100vw - 400px);
+    flex: 5 auto;
 }
 
 .download-img {
