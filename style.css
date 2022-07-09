@@ -7,9 +7,6 @@ body{
 }
 header{
 	background: #DAD2C6;
-}
-
-.header-block{
     margin: 0;
     display: flex;
     align-items: center;
@@ -31,19 +28,41 @@ header a{
     user-select: none;
 }
 
+header a:active{
+    color: #72726E;
+    opacity: .8 ;
+}
+
 .about{
     background-image: url("img/game.jpg");
-    margin: 0;
-    display: flex;
-    text-align: center;
     font-family: 'Fedra Sans Pro';
     font-weight: 300;
     font-style: normal;
     font-size: 36px;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 600px;
+    align-items: center;
+}
+
+.about h1{
+    font-family: 'Sprite Graffiti';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
 }
 
 @media (max-width: 850px){
-    .header-link{
+    header a{
         font-size: 50px;
+    }
+    .about h1{
+        font-size: 30px;
+    }
+    .about{
+        padding-left: 0;
+        height: 350px;
+        font-size: 18px;
     }
 }
