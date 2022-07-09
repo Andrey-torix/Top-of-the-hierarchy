@@ -17,7 +17,7 @@ header{
     text-align: center;
 }
 
-.header-link {
+header a{
     color: #72726E;
     text-align: center;
     font-family: 'Sprite Graffiti';
@@ -29,103 +29,11 @@ header{
     -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-}
-
-a:active {
-    color: #72726E;
-    opacity: .8;
-}
-
-.about{
-    font-family: 'Sprite Graffiti';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 50px;
-    width: 400px;
-    flex: 1 auto;
     pointer-events: none;
 }
-.text-about{
-    font-family: 'Fedra Sans Pro';
-    font-weight: 300;
-    font-style: normal;
-    font-size: 36px;
-}
-.about-link{
-    text-decoration: none;
-    color: black;
-    font-size: 30px;
-    pointer-events: all;
-}
-.about-header{
-    font-size: 50px;
-}
-p{
-    margin: 0;
-}
 
-.download {
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-    flex: 5 auto;
-}
-
-.download-img {
-    position: absolute;
-}
-
-.download-img img {
-    width: 100%;
-    opacity: 0.7;
-}
-
-.download-link{
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-family: 'Fedra Sans Pro';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 60px;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-.download-link a {
-    color: #72726E;
-    text-decoration: none;
-}
-
-.block{
-    display: flex;
-}
-
-.row-wrap {
-    display: flex;
-    flex-flow: row wrap;
-}
-
-@media (max-width: 1150px) {
-    .about, .download {
-        width: 100vw;
-    }
-}
 @media (max-width: 850px){
     .header-link{
         font-size: 50px;
-    }
-    .about-header{
-        font-size: 36px;
-    }
-    .text-about, .about-link{
-        font-size: 28px;
-    }
-}
-    @media (max-width: 392px){    
-    .text-about, .about-link{
-        font-size: 20px;
     }
 }
