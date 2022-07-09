@@ -29,7 +29,17 @@ header a{
     -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-    pointer-events: none;
+}
+
+.about{
+    background-image: url("img/game.jpg");
+    margin: 0;
+    display: flex;
+    text-align: center;
+    font-family: 'Fedra Sans Pro';
+    font-weight: 300;
+    font-style: normal;
+    font-size: 36px;
 }
 
 @media (max-width: 850px){
