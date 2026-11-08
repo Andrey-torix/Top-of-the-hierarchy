@@ -1,0 +1,26 @@
+.download-page { padding-block: 5rem 6rem; }
+.download-heading { margin-bottom: 2.75rem; }
+.download-heading .display-title { margin-bottom: .75rem; }
+.download-heading > p { margin: 0; color: var(--muted); font-size: 1rem; }
+
+.download-card { display: grid; grid-template-columns: .95fr 1.05fr; min-height: 24.5rem; border-radius: var(--radius-l); overflow: hidden; background: var(--paper-deep); }
+.download-card-art { position: relative; min-height: 24.5rem; overflow: hidden; background: var(--forest); }
+.download-card-art::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20,30,25,.6), transparent 65%); }
+.download-card-art img { width: 100%; height: 100%; min-height: 24.5rem; object-fit: cover; object-position: 62% center; }
+.art-label { position: absolute; z-index: 1; left: 1.75rem; bottom: 1.5rem; color: #fff; font-family: 'Sprite Graffiti', cursive; font-size: 2rem; line-height: .9; }
+
+.download-card-content { align-self: center; padding: 3.5rem clamp(1.75rem, 6vw, 4.5rem); }
+/* точка здесь не декор, а индикатор статуса */
+.availability { display: inline-flex; align-items: center; gap: .5rem; color: var(--muted); font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.availability span { width: .5rem; height: .5rem; border-radius: 50%; background: var(--clay); }
+.download-card-content h2 { margin: 1.5rem 0 1rem; color: var(--forest); font-family: 'Sprite Graffiti', cursive; font-size: clamp(1.9375rem, 4vw, 2.875rem); font-weight: 400; line-height: 1.03; }
+.download-card-content > p { max-width: 26.25rem; margin: 0 0 1.5rem; color: var(--muted); font-size: .9375rem; font-weight: 400; line-height: 1.6; }
+
+@media (max-width: 640px) {
+  .download-page { padding-block: 3.75rem 4.5rem; }
+  .download-heading { margin-bottom: 2rem; }
+  .download-card { grid-template-columns: 1fr; }
+  .download-card-art, .download-card-art img { min-height: 15.25rem; height: 15.25rem; }
+  .download-card-content { padding: 2.25rem 1.5rem 2.5rem; }
+  .download-card-content h2 { font-size: 2.25rem; }
+}

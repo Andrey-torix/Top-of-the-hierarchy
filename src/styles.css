@@ -1,0 +1,196 @@
+/*
+ * Шрифты лежат в assets и подключаются по абсолютному пути, чтобы
+ * <link rel="preload"> в index.html указывал на тот же самый файл.
+ */
+@font-face {
+  font-family: 'Fedra Sans Pro';
+  src: url('/assets/fonts/FedraSans/FedraSansPro-Light.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fedra Sans Pro';
+  src: url('/assets/fonts/FedraSans/FedraSansPro-Book.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fedra Sans Pro';
+  src: url('/assets/fonts/FedraSans/FedraSansPro-Medium.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fedra Sans Pro';
+  src: url('/assets/fonts/FedraSans/FedraSansPro-Bold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sprite Graffiti';
+  src: url('/assets/fonts/SpriteGraffiti/SpriteGraffiti.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/*
+ * Система:
+ * — шрифты и отступы в rem (1rem = 16px по умолчанию), чтобы вёрстка
+ *   масштабировалась вместе с настройкой размера текста в браузере;
+ * — все отступы кратны 4px (0.25rem);
+ * — три радиуса скругления: мелкие элементы, карточки/фото, крупные панели;
+ * — глобального scroll-behavior: smooth нет намеренно (иначе роутер
+ *   «проматывает» новую страницу к началу).
+ * Пиксели остались только у волосяных линий, теней, зон нажатия (минимум 44px)
+ * и ширины контейнеров.
+ */
+:root {
+  color-scheme: light;
+  --paper: #f1ede5;
+  --paper-deep: #e7e0d4;
+  --paper-light: #f6f2ea;
+  --ink: #202923;
+  --muted: #555c54;           /* вторичный текст: ≥ 4.5:1 на обоих светлых фонах */
+  --forest: #1c2b25;
+  --forest-soft: #293b32;
+  --clay: #bf7953;            /* только декор: линии, точки */
+  --clay-strong: #a8603d;     /* кнопки, акцентные карточки, крупный акцентный текст, фокус */
+  --clay-text: #8f4d2e;       /* мелкий акцентный текст на светлом фоне */
+  --clay-light: #d69a74;      /* акцентный текст на тёмном фоне */
+  --line: rgba(32, 41, 35, 0.12);
+  --radius-s: .75rem;         /* 12px */
+  --radius-m: 1.25rem;        /* 20px — карточки, фото */
+  --radius-l: 1.75rem;        /* 28px — крупные панели */
+  --header-height: 4.5rem;    /* 72px */
+  --header-bg: rgba(241, 237, 229, .86);
+  --press: scale(.97);
+  font-family: 'Fedra Sans Pro', Arial, sans-serif;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+* { box-sizing: border-box; }
+html, body { min-height: 100%; margin: 0; }
+body { min-width: 320px; background: var(--paper); }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; -webkit-tap-highlight-color: transparent; }
+button { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--clay-strong); outline-offset: 4px; }
+.site-footer a:focus-visible, .site-footer button:focus-visible, .hero a:focus-visible, .closing-panel a:focus-visible { outline-color: var(--clay-light); }
+button, a { touch-action: manipulation; }
+/* clip, а не hidden: hidden создаёт контейнер прокрутки и ломает position: sticky у шапки */
+.app-shell { overflow-x: clip; }
+.page-container { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
+
+/* Header: закреплённый полупрозрачный слой; край проявляется только над прокрученным контентом */
+.site-header { position: sticky; top: 0; z-index: 20; background: var(--header-bg); -webkit-backdrop-filter: blur(20px) saturate(170%); backdrop-filter: blur(20px) saturate(170%); box-shadow: 0 1px 0 transparent; transition: box-shadow .25s ease; }
+.site-header.is-scrolled { box-shadow: 0 1px 0 var(--line), 0 12px 24px -20px rgba(32, 41, 35, .35); }
+.header-inner { width: min(1320px, calc(100% - 64px)); min-height: var(--header-height); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.brand { position: relative; display: inline-flex; align-items: center; text-decoration: none; color: var(--forest); }
+.brand::before { content: ''; position: absolute; inset: -7px -4px; }
+.brand-name { font-family: 'Sprite Graffiti', cursive; font-size: 1.3125rem; line-height: .86; letter-spacing: -.02em; }
+.brand-name span { padding-left: .75rem; color: var(--clay-strong); }
+.main-nav { display: flex; align-items: center; gap: clamp(1.5rem, 4vw, 3rem); }
+.main-nav a { position: relative; display: inline-flex; align-items: center; gap: .5rem; color: var(--muted); font-size: .875rem; font-weight: 500; text-decoration: none; transition: color .2s ease, transform .1s ease-out; }
+/* невидимое расширение зоны нажатия до 44px без изменения вёрстки */
+.main-nav a:not(.nav-cta)::before { content: ''; position: absolute; inset: -14px -8px; }
+.main-nav a:not(.nav-cta)::after { content: ''; position: absolute; left: 0; right: 0; bottom: -.5rem; height: 1px; background: var(--clay); transform: scaleX(0); transform-origin: left; transition: transform .2s ease; }
+.main-nav a:hover, .main-nav a.is-active { color: var(--ink); }
+.main-nav a:hover::after, .main-nav a.is-active::after { transform: scaleX(1); }
+.nav-badge { padding: .125rem .5rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .6875rem; font-weight: 700; letter-spacing: .06em; line-height: 1.3; text-transform: uppercase; }
+.main-nav .nav-cta { min-height: 2.75rem; padding: 0 1.25rem; border-radius: 999px; color: var(--paper); background: var(--forest); transition: background .2s ease, transform .1s ease-out; }
+.main-nav .nav-cta:hover, .main-nav .nav-cta.is-active { color: #fff; background: var(--clay-strong); }
+.main-nav a:active { transform: var(--press); }
+
+/* Typography: трекинг зависит от размера — отрицательный у крупных заголовков, положительный у мелких надписей */
+.eyebrow { color: var(--clay-text); font-size: .75rem; font-weight: 700; letter-spacing: .14em; line-height: 1.4; text-transform: uppercase; }
+.eyebrow-light { color: rgba(255,255,255,.82); }
+
+.display-title { margin: 1.5rem 0; color: var(--forest); font-family: 'Sprite Graffiti', 'Fedra Sans Pro', sans-serif; font-size: clamp(3.375rem, 7vw, 5.3125rem); font-weight: 400; line-height: .86; letter-spacing: -.035em; }
+.display-title em { color: var(--clay-strong); font-style: normal; }
+
+.section-title { margin: 0; font-family: 'Sprite Graffiti', cursive; font-size: clamp(2.4375rem, 5.4vw, 4.125rem); font-weight: 400; line-height: .98; letter-spacing: -.025em; }
+.section-title span { color: var(--clay-strong); }
+
+/* Buttons: капсулы; отклик на нажатие мгновенный, при наведении меняется только цвет */
+.button { min-height: 3.25rem; display: inline-flex; align-items: center; justify-content: center; gap: .75rem; padding: 0 1.5rem; border-radius: 999px; font-size: .9375rem; font-weight: 500; text-decoration: none; transition: transform .1s ease-out, background .2s ease, color .2s ease; }
+.button:active { transform: var(--press); }
+.button-primary { color: #fff; background: var(--clay-strong); }
+.button-primary:hover { background: var(--clay-text); }
+/* «Стеклянная» кнопка поверх фото: материал вместо пустой рамки */
+.button-glass { border: 1px solid rgba(255,255,255,.28); color: #fff; background: rgba(255,255,255,.12); -webkit-backdrop-filter: blur(14px) saturate(150%); backdrop-filter: blur(14px) saturate(150%); }
+.button-glass:hover { background: rgba(255,255,255,.2); }
+.button-dark { color: var(--paper); background: var(--forest); }
+.button-dark:hover { background: var(--clay-strong); }
+.text-link { position: relative; display: inline-flex; align-items: center; gap: .5rem; padding-bottom: .375rem; border-bottom: 1px solid var(--clay); color: var(--ink); font-size: .875rem; font-weight: 700; text-decoration: none; transition: gap .2s ease, opacity .1s ease-out; }
+.text-link::before { content: ''; position: absolute; inset: -10px -6px; }
+.text-link:active { opacity: .6; }
+/* стрелка подсказывает направление: сдвигается туда, куда ведёт ссылка */
+@media (hover: hover) {
+  .text-link:hover { gap: .875rem; }
+}
+
+/* Footer */
+.site-footer { color: rgba(255,255,255,.75); background: var(--forest); }
+.footer-inner { width: min(1320px, calc(100% - 64px)); min-height: 5.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin: 0 auto; }
+.footer-brand { position: relative; color: #fff; font-family: 'Sprite Graffiti', cursive; font-size: 1.25rem; text-decoration: none; }
+.footer-brand::before { content: ''; position: absolute; inset: -11px -6px; }
+.footer-note { color: rgba(255,255,255,.62); font-size: .75rem; letter-spacing: .02em; }
+.back-to-top { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; padding: 0; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; color: #fff; background: transparent; font: inherit; font-size: 1.125rem; cursor: pointer; transition: background .2s ease, transform .1s ease-out; }
+.back-to-top:hover { background: var(--clay-strong); }
+.back-to-top:active { transform: var(--press); }
+
+@media (max-width: 900px) {
+  .page-container, .header-inner, .footer-inner { width: min(100% - 44px, 720px); }
+}
+
+@media (max-width: 640px) {
+  :root { --header-height: 4rem; --radius-l: 1.25rem; }
+  .page-container, .header-inner, .footer-inner { width: calc(100% - 40px); }
+  .header-inner { gap: .75rem; }
+  .brand-name { font-size: 1.125rem; }
+  .main-nav { gap: 1.25rem; }
+  .main-nav a { font-size: .8125rem; }
+  .main-nav .nav-cta { padding: 0 1rem; }
+  .nav-badge { display: none; }
+  /* На телефоне «Главная» скрыта — на главную ведёт логотип */
+  .main-nav a:not(.nav-cta):not(:nth-child(2)) { display: none; }
+  .display-title { font-size: clamp(3.4375rem, 14vw, 4.6875rem); }
+  .section-title { font-size: clamp(2.4375rem, 11vw, 3.3125rem); }
+  .button { min-height: 3rem; }
+  .footer-inner { min-height: 5.25rem; flex-wrap: wrap; padding: 1.25rem 0; }
+  .footer-brand { font-size: 1.125rem; }
+  .footer-note { order: 3; width: 100%; }
+  .back-to-top { margin-left: auto; }
+}
+
+/* Пониженная прозрачность: материалы становятся сплошными */
+@media (prefers-reduced-transparency: reduce) {
+  .site-header { background: var(--paper); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .button-glass { background: rgba(16, 27, 22, .7); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+
+/* Повышенный контраст: сплошные поверхности, темнее вторичный текст, чёткие границы */
+@media (prefers-contrast: more) {
+  :root { --muted: #3a4039; --line: rgba(32, 41, 35, .5); --clay-text: #6f3a20; }
+  .site-header { background: var(--paper); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: 0 1px 0 var(--ink); }
+  .button-glass { border-color: #fff; background: rgba(0,0,0,.55); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .text-link { border-bottom-width: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  .button:active, .main-nav a:active, .back-to-top:active { transform: none; }
+}

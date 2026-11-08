@@ -1,0 +1,29 @@
+<div class="app-shell">
+  <header class="site-header" [class.is-scrolled]="scrolled()">
+    <div class="header-inner">
+      <a class="brand" routerLink="/" aria-label="Вершина иерархии — главная">
+        <span class="brand-name">Вершина<br /><span>иерархии</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Главная навигация">
+        <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">Главная</a>
+        <a routerLink="/download" routerLinkActive="is-active" ariaCurrentWhenActive="page">Скачать <span class="nav-badge">скоро</span></a>
+        <a class="nav-cta" routerLink="/about" routerLinkActive="is-active" ariaCurrentWhenActive="page">О книге</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <router-outlet />
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="footer-brand" routerLink="/">Вершина иерархии</a>
+      <span class="footer-note">История, которая начинается за горизонтом.</span>
+      <button class="back-to-top" type="button" aria-label="Наверх" (click)="scrollToTop()">
+        <span aria-hidden="true">↑</span>
+      </button>
+    </div>
+  </footer>
+</div>
